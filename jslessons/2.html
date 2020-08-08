@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>
+            image dabbling
+        </title>
+        <style>
+            .img:hover 
+            {
+                background: url('ind.png');
+                /* width: 100px; */
+                /* height: 200px; */
+            }
+                    
+            a img:last-child {
+                display: none;  
+            }
+            a:hover img:last-child {
+                display: block;  
+            }
+            a:hover img:first-child {
+                display: none;  
+            }
+        </style>
+    </head>
+    <body>
+        <a href="1.html"  target="_self">
+            <img class="img" src="rec.png">
+        </a>
+        <a href="1.html" target="_self">
+            <img src="rec.png" /> 
+            <img src="ind.png" />
+         </a>
+    </body>
+</html>
