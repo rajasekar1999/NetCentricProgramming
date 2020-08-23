@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Random Pictures
+    </title>
+
+    <style>
+        table,tr,td,th 
+        {
+            padding: 2px;
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body bgcolor="pink">
+    <font size = "3" face ="Verdana">
+    <center>
+        <img src = "" id = "image" style = "height: 300px; width: auto;">
+        <h3 id = "desc"></h3>
+    
+        <button id = "run" onclick = "random()">Run for 10 trials</button>
+    
+    
+        <h1>Frequency</h1>
+        <table border = "1px" >
+            <tr>
+                <th>MSD</th>
+                <th>VK</th>
+                <th>SRT</th>
+                <th>DK</th>
+                <th>Ash</th>
+            </tr>
+            <tr>
+                <td id = "1">0</td>
+                <td id = "2">0</td>
+                <td id = "3">0</td>
+                <td id = "4">0</td>
+                <td id = "5">0</td>
+            </tr>
+        </table>
+    
+        <script>
+            let n = {"1": 0, "2": 0, "3": 0, "4": 0, "5": 0}
+    
+            let description = [
+                "MSD \n Team: 	CSK",
+                "VK \n Team: RCB",
+                "SRT \n Team: MI",
+                "DK \n Team: KKR",
+                "Ash \n Team: KXIP"
+            ]
+    
+            let images = [
+                "https://cdn.zeebiz.com/sites/default/files/2019/05/13/86528-csk.jpg",
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSPVEctFknSfd_fXn-g5MjE5-KDT8ImkSYBAw&usqp=CAU",
+                "https://cdn.dnaindia.com/sites/default/files/styles/full/public/2019/04/24/816304-814706-sachin-tendulkar-twitter.jpg",
+                "https://imagevars.gulfnews.com/2018/4/2/1_16a084c2091.2198736_889303365_16a084c2091_medium.jpg",
+                "https://cricketaddictor.com/wp-content/uploads/2018/05/IMG_4359-1-1024x682.jpg"
+            ]
+    
+            function random()
+            {
+                for(var i = 0; i < 10; i++)
+                {
+                    setTimeout(function () 
+                    {
+                        var rand = Math.floor(Math.random() * 5)
+                        if (document.getElementById(String(rand + 1)).innerText == "0") 
+                        {
+                            document.getElementById(String(rand + 1)).innerText = "1"
+                            n[String(rand + 1)] = 1
+                        } 
+                        
+                        else 
+                        {
+                            document.getElementById(String(rand + 1)).innerText = String(parseInt(document.getElementById(String(rand + 1)).innerText) + 1)
+                            n[String(rand + 1)] = parseInt(document.getElementById(String(rand + 1)).innerText) + 1
+                        }
+                        document.getElementById('desc').innerText = description[rand]
+                        document.getElementById("image").src = images[rand]
+                    }, 2000 * i); 
+        
+                }
+                
+            }
+        </script>
+    </center>
+</font>
+</body>
+
+</html>
