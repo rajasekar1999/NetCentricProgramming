@@ -14,12 +14,20 @@
                 Username: <input type="text" name="username"/><br><br>
                 Date of Birth: <input type="date" name="dob"/><br></br>
                 Sex: <select><option>Male</option><option>Female</option><option>Others</option></select><br><br>
-                Maths Marks: <input type="number" name="maths"/><br></br>
+                Biology Marks: <input type="number" name="maths"/><br></br>
                 Physics Marks: <input type="number" name="physics"/><br></br>
                 Chemistry Marks: <input type="number" name="chemistry"/><br></br>
             </form>
             <button value="submit" onclick="Validate()">Check Eligibility</button>
             </h2>
         </div>
+        <script>
+            function Validate() 
+            {
+                var flag = true;
+                var m = document.getElementsByName('maths')
+                alert(m)
+            }
+        </script>
     </body>
 </html>
