@@ -4,12 +4,18 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <style>
+            body
+            {
+                background:lightblue;
+            }
+        </style>
     </head>
     <body>
         <div style="width: 90%; float: right;">
             <h1>Admission Form</h1><br>
             <h2>
-            <form>
+            <form name="admin">
                 Name: <input type="text" name="name"/><br><br>
                 Username: <input type="text" name="username"/><br><br>
                 Date of Birth: <input type="date" name="dob"/><br></br>
@@ -22,11 +28,34 @@
             </h2>
         </div>
         <script>
-            function Validate() 
+            function Validate()
             {
                 var flag = true;
-                var m = document.getElementsByName('maths')
-                alert(m)
+                var m = document.forms["admin"]["maths"].value;
+                var p = document.forms["admin"]["physics"].value;
+                var c = document.forms["admin"]["chemistry"].value;
+                var age = document.forms["admin"]["dob"].value;
+                age = 2020 - parseInt(age.slice(0,4))
+                if(m>50 && p>50 && c>50 && age>17 && age<23)
+                {
+                    flag = true;
+                }
+                else
+                {
+                    flag = false;
+                }
+                if(document.forms["admin"]["name"].value=='' || document.forms["admin"]["username"].value=='')
+                {
+                    flag = false;
+                }
+                if(flag == true)
+                {
+                    alert('Eligible Candidate');
+                }
+                else
+                {
+                    alert('Not an Eligible Candidate');
+                }
             }
         </script>
     </body>
